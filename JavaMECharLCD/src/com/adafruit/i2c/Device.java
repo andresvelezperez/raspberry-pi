@@ -73,6 +73,7 @@ public class Device {
     public void write8(int register, int value) throws IOException {
         //"""Write an 8-bit value to the specified register."""
         value = value & 0xFF;
+        command = ByteBuffer.allocateDirect(1);
         command.clear();
         command.put((byte) value);
         command.rewind();
@@ -83,6 +84,7 @@ public class Device {
     public void write16(int register, int value) throws IOException {
         //"""Write a 16-bit value to the specified register."""
         value = value & 0xFFFF;
+        command = ByteBuffer.allocateDirect(2);
         command.clear();
         command.putShort((short) value);
         command.rewind();
@@ -92,6 +94,7 @@ public class Device {
 
     public void writeList(int register, byte[] data) throws IOException {
         //"""Write bytes to the specified register."""
+        command = ByteBuffer.allocateDirect(data.length);
         command.clear();
         command.put(data);
         command.rewind();

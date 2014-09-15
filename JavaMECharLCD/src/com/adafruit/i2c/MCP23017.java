@@ -19,29 +19,31 @@
 //# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //# THE SOFTWARE.
-
 package com.adafruit.i2c;
 
 import java.io.IOException;
 
 /**
  * https://github.com/adafruit/Adafruit_Python_GPIO/blob/master/Adafruit_GPIO/MCP230xx.py
- * 
+ *
  * @author Andres Velez Perez
  */
-public class MCP23017 extends MCP230xxBase{
-    
+public class MCP23017 extends MCP230xxBase {
+
     private static final int _NUM_GPIO = 16;
     private static final int _IODIR = 0x00;
     private static final int _GPIO = 0x12;
     private static final int _GPPU = 0x0C;
-    
-    public MCP23017() throws IOException{
+
+    public MCP23017() throws IOException {
         this(0x20);
     }
-    
-    public MCP23017(int adress) throws IOException{
-        super(adress,_NUM_GPIO ,_GPPU, _IODIR, _GPIO);
+
+    public MCP23017(int adress) throws IOException {
+        super(adress, _NUM_GPIO, _GPPU, _IODIR, _GPIO);
     }
-    
+
+    public MCP23017(int adress, int busnumm) throws IOException {
+        super(adress, busnumm, _NUM_GPIO, _GPPU, _IODIR, _GPIO);
+    }
 }

@@ -58,6 +58,15 @@ public class Adafruit_RGBCharLCD extends Adafruit_CharLCD {
                 Platform.get_platform_pwm(),
                 new float[]{1.0f, 1.0f, 1.0f});
     }
+    
+    public Adafruit_RGBCharLCD(int rs, int en, int d4, int d5, int d6, int d7, int cols, int lines, int red, int green, int blue,BaseGPIO gpio) throws IOException {
+        this(rs, en, d4, d5, d6, d7, cols, lines, red, green, blue,
+                gpio,
+                true,
+                false,
+                Platform.get_platform_pwm(),
+                new float[]{1.0f, 1.0f, 1.0f});
+    }
 
     public Adafruit_RGBCharLCD(int rs, int en, int d4, int d5, int d6, int d7, int cols, int lines, int red, int green, int blue,
             BaseGPIO gpio, boolean invert_polarity, boolean enable_pwm, PWM_Adapter pwm, float[] initial_color) throws IOException {

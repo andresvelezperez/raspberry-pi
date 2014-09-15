@@ -42,7 +42,7 @@ public class char_lcd_rgb implements ExampleCharLCD{
     @Override
     public void init() throws IOException, InterruptedException {
         //# Initialize the LCD using the pins above.
-        Adafruit_RGBCharLCD lcd = new Adafruit_RGBCharLCD(lcd_rs, lcd_en, lcd_d4, lcd_d5, lcd_d6, lcd_d7,
+        lcd = new Adafruit_RGBCharLCD(lcd_rs, lcd_en, lcd_d4, lcd_d5, lcd_d6, lcd_d7,
                 lcd_columns, lcd_rows, lcd_red, lcd_green, lcd_blue);
         //# Show some basic colors.
         lcd.set_color(1.0f, 0.0f, 0.0f);
