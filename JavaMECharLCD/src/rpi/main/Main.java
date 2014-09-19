@@ -25,13 +25,13 @@ public class Main extends MIDlet {
     public void startApp() {
         try {
 
-            //exampleCharLCD = new char_lcd();
+            exampleCharLCD = new char_lcd();
             
             //exampleCharLCD = new char_lcd_rgb();
             
             //exampleCharLCD = new char_lcd_rgb_pwm();
             
-            exampleCharLCD = new char_lcd_mcp();
+            //exampleCharLCD = new char_lcd_mcp();
 
             
             exampleCharLCD.init();
