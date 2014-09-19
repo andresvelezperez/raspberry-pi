@@ -28,7 +28,7 @@ public class SoftPWM implements Runnable {
         public float basetime;
         public float slicetime;
         public TimeSpec req_on, req_off;
-        public boolean running;
+        public volatile boolean running;
         public StructPWM next;
         public GPIOPin gPIOPin;
     }
@@ -88,7 +88,7 @@ public class SoftPWM implements Runnable {
         }
         try {
             // clean up
-            structPWM.gPIOPin.setValue(false);
+            structPWM.gPIOPin.setValue(true);
         } catch (IOException ex) {
             Logger.getLogger(SoftPWM.class.getName()).log(Level.SEVERE, null, ex);
         }

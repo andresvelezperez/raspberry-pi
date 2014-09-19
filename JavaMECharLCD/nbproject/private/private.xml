@@ -3,10 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/andres/Documents/GitHub/raspberry-pi/JavaMECharLCD/src/com/adafruit/i2c/MCP230xxBase.java</file>
-            <file>file:/C:/Users/andres/Documents/GitHub/raspberry-pi/JavaMECharLCD/src/com/adafruit/examples/lcd/char_lcd.java</file>
-            <file>file:/C:/Users/andres/Documents/GitHub/raspberry-pi/JavaMECharLCD/src/com/adafruit/i2c/MCP23017.java</file>
-            <file>file:/C:/Users/andres/Documents/GitHub/raspberry-pi/JavaMECharLCD/src/com/adafruit/i2c/Device.java</file>
+            <file>file:/C:/Users/andres/Documents/GitHub/raspberry-pi/JavaMECharLCD/src/com/adafruit/lcd/Adafruit_RGBCharLCD.java</file>
+            <file>file:/C:/Users/andres/Documents/GitHub/raspberry-pi/JavaMECharLCD/src/rpi/io/DIOPWM.java</file>
+            <file>file:/C:/Users/andres/Documents/GitHub/raspberry-pi/JavaMECharLCD/src/rpi/io/DefaultPWM.java</file>
         </group>
     </open-files>
 </project-private>
