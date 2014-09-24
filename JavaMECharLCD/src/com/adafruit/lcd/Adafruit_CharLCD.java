@@ -318,6 +318,33 @@ public class Adafruit_CharLCD {
             }
         }
     }
+   
+    /**
+     * Custom glyphs into character lcd
+     * 
+     * @param characterCode
+     * @param customGlyphs
+     * @throws IOException 
+     */
+    public void customGlyphs(int characterCode,int[] customGlyphs) throws IOException{
+        
+        int cgramaddr = LCD_SETCGRAMADDR;
+        if( (displayfunction & LCD_5x8DOTS) == LCD_5x8DOTS){
+            cgramaddr |= characterCode * 8;
+            if(characterCode > 8){
+                throw new RuntimeException("Character code invalid, only [0,7] not"+characterCode);
+            }
+        }else if((displayfunction & LCD_5x10DOTS) == LCD_5x10DOTS){
+            cgramaddr |= characterCode * 10;
+            if(characterCode > 4){
+                throw new RuntimeException("Character code invalid, only [0,4] not"+characterCode);
+            }
+        }
+        write8(cgramaddr);
+        for(int cg : customGlyphs){
+            write8(cg,true);
+        }
+    }
 
     private void write8(int value) throws IOException {
         this.write8(value, false);
