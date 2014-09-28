@@ -72,23 +72,6 @@ public class Adafruit_CharLCD {
     public static int LCD_5x8DOTS = 0x00;
     // Offset for up to 4 rows.
     public static int LCD_ROW_OFFSETS[] = {0x00, 0x40, 0x14, 0x54};
-    // Char LCD plate GPIO numbers.
-    public static int LCD_PLATE_RS = 15;
-    public static int LCD_PLATE_RW = 14;
-    public static int LCD_PLATE_EN = 13;
-    public static int LCD_PLATE_D4 = 12;
-    public static int LCD_PLATE_D5 = 11;
-    public static int LCD_PLATE_D6 = 10;
-    public static int LCD_PLATE_D7 = 9;
-    public static int LCD_PLATE_RED = 6;
-    public static int LCD_PLATE_GREEN = 7;
-    public static int LCD_PLATE_BLUE = 8;
-    // Char LCD plate button names.
-    public static int SELECT = 0;
-    public static int RIGHT = 1;
-    public static int DOWN = 2;
-    public static int UP = 3;
-    public static int LEFT = 4;
 
     // var class    
     public boolean _blpol;
@@ -98,8 +81,9 @@ public class Adafruit_CharLCD {
     private int displaymode;
     private int displaycontrol;
     private int displayfunction;
-    BaseGPIO _gpio;
-    PWM_Adapter _pwm;
+    
+    protected BaseGPIO _gpio;
+    protected PWM_Adapter _pwm;
     
     public Adafruit_CharLCD(int rs, int en, int d4, int d5, int d6, int d7, int cols, int lines,int backlight) throws IOException {
         /*int backlight = -1;
@@ -403,7 +387,7 @@ public class Adafruit_CharLCD {
         _delay_microseconds(1); //# commands need > 37us to settle
     }
 
-    public float _pwm_duty_cycle(float intensity) {
+    protected float _pwm_duty_cycle(float intensity) {
         // Convert intensity value of 0.0 to 1.0 to a duty cycle of 0.0 to 100.0
         intensity = 100.0f * intensity;
         // Invert polarity if required.
