@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.avpsoft.streamserver;
+package org.avpsoft.streaming.net;
 
 import com.twilight.h264.player.H264Player;
 import java.io.IOException;

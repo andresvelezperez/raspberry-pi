@@ -19,7 +19,7 @@ package org.avpsoft.streaming.main;
 import java.io.IOException;
 import java.net.SocketException;
 import java.net.UnknownHostException;
-import org.avpsoft.streamserver.DatagramCommandServer;
+import org.avpsoft.streaming.net.DatagramCommandServer;
 import org.avpsoft.streaming.net.DatagramCommandClient;
 
 
