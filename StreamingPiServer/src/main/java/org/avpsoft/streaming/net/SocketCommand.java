@@ -88,7 +88,6 @@ public class SocketCommand implements Runnable {
     private Command getCommand(final String input) {
 
         for (Command c : Command.values()) {
-            System.out.println(c.name());
             if (input.startsWith(c.name())) {
                 return c;
             }
