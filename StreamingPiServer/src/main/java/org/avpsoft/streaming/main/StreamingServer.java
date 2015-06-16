@@ -38,12 +38,7 @@ public class StreamingServer {
         }
 
         final Thread thread = new Thread(new SocketCommandServer(port), "SocketCommandServer");
-        thread.start();
-        try {
-            thread.join();
-        } catch (InterruptedException ex) {
-            thread.interrupt();
-        }
+        
 
         Runnable runnableShutdownHook = new Runnable() {
             @Override
@@ -51,7 +46,7 @@ public class StreamingServer {
                 System.out.println("[StreamingServer PI] Server killing...");
                 thread.interrupt();
                 try {
-                    thread.join();
+                    thread.join(5000);
                 } catch (InterruptedException ex) {
 
                 }
@@ -60,6 +55,9 @@ public class StreamingServer {
         };
 
         Runtime.getRuntime().addShutdownHook(new Thread(runnableShutdownHook, "RunnableShutdownHook"));
+        
+        
+        thread.start();
 
     }
 
