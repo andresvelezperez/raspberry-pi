@@ -165,7 +165,7 @@ public class SocketCommand implements Runnable {
 
     private void startThreadDatagramCommandClient_D(String... parameters) throws UnknownHostException, SocketException, FileNotFoundException {
         if (threadDatagramCommandClient == null) {
-            threadDatagramCommandClient = new Thread(new DatagramCommandClient(inetSocketAddress, new StreamProcess(parameters)), "DatagramCommandClient");
+            threadDatagramCommandClient = new Thread(new DatagramStreamClient(inetSocketAddress, new StreamProcess(parameters)), "DatagramCommandClient");
             threadDatagramCommandClient.start();
         } else {
             out.printf("Is running... %n");
@@ -174,7 +174,7 @@ public class SocketCommand implements Runnable {
 
     private void startThreadDatagramCommandClient_F(String... parameters) throws UnknownHostException, SocketException, FileNotFoundException {
         if (threadDatagramCommandClient == null) {
-            threadDatagramCommandClient = new Thread(new DatagramCommandClient(inetSocketAddress, new StreamFile(parameters)), "DatagramCommandClient");
+            threadDatagramCommandClient = new Thread(new DatagramStreamClient(inetSocketAddress, new StreamFile(parameters)), "DatagramCommandClient");
             threadDatagramCommandClient.start();
         } else {
             out.printf("Is running... %n");

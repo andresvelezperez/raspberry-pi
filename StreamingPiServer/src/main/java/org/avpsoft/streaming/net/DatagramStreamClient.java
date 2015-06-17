@@ -30,7 +30,7 @@ import org.avpsoft.streaming.stream.StreamFile;
  *
  * @author andresvelezperez
  */
-public class DatagramCommandClient implements Runnable {
+public class DatagramStreamClient implements Runnable {
 
     private DatagramSocket datagramSocket;
     private DatagramPacket datagramPacket;
@@ -41,7 +41,7 @@ public class DatagramCommandClient implements Runnable {
 
     private volatile boolean stop = false;
 
-    public DatagramCommandClient(final SocketAddress socketAddress, final Stream stream) throws UnknownHostException, SocketException {
+    public DatagramStreamClient(final SocketAddress socketAddress, final Stream stream) throws UnknownHostException, SocketException {
         this.stream = stream;
         this.datagramPacket = new DatagramPacket(buffer, maxBuffer, socketAddress);
         this.datagramSocket = new DatagramSocket();
