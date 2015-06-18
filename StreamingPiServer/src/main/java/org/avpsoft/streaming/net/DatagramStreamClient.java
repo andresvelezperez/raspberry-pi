@@ -35,7 +35,7 @@ public class DatagramStreamClient implements Runnable {
     private DatagramSocket datagramSocket;
     private DatagramPacket datagramPacket;
     private Stream stream;
-    
+
     private static final int maxBuffer = 2048;
     private byte[] buffer = new byte[maxBuffer];
 
@@ -52,7 +52,7 @@ public class DatagramStreamClient implements Runnable {
         InputStream inputStream = null;
         int read = 0;
         try {
-            if (stream!=null) {
+            if (stream != null) {
                 inputStream = stream.getInputStream();
             } else {
                 throw new NullPointerException("stream is null");
@@ -70,11 +70,11 @@ public class DatagramStreamClient implements Runnable {
                     datagramPacket.setLength(read);
                     datagramSocket.send(datagramPacket);
                 }
-                
-                if(stream instanceof StreamFile){
-                    try{
-                    Thread.sleep(350);
-                    }catch(InterruptedException ignore){
+
+                if (stream instanceof StreamFile) {
+                    try {
+                        Thread.sleep(300);
+                    } catch (InterruptedException ignore) {
                         stop = true;
                     }
                 }

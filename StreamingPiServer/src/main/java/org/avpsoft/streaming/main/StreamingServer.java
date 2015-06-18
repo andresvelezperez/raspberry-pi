@@ -34,7 +34,7 @@ public class StreamingServer {
             System.out.printf("[StreamingServer PI] Set Port %d %n ", port);
         } else {
             System.out.println("Usage Server, Only in Raspberry Pi: org.avpsoft.streaming.main.StreamingServer port  \n");
-            System.out.printf("[StreamingServer PI] Set Port Default %d %n ", port);
+            System.out.printf("[StreamingServer PI] Set Port Default %d %n", port);
         }
 
         final Thread thread = new Thread(new SocketCommandServer(port), "SocketCommandServer");
@@ -56,9 +56,7 @@ public class StreamingServer {
 
         Runtime.getRuntime().addShutdownHook(new Thread(runnableShutdownHook, "RunnableShutdownHook"));
         
-        
         thread.start();
-
     }
 
 }
