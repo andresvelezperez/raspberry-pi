@@ -45,7 +45,7 @@ public class SocketCommand implements Runnable {
 
     private enum Command {
 
-        CONNECT, RUNPI, RUNFILE, STOP, STATUS, BYE, UNKNOWN
+        CONNECT, SETPORT, RUNPI, RUNFILE, STOP, STATUS, BYE, UNKNOWN
     };
 
     public SocketCommand(final Socket socket) throws IOException {
@@ -109,7 +109,7 @@ public class SocketCommand implements Runnable {
             String[] parameters = getParameters(command.name(), readLine);
 
             switch (command) {
-                case CONNECT:
+                case SETPORT:
                     int port = Integer.valueOf(parameters[0]);
                     this.inetSocketAddress = new InetSocketAddress(socket.getInetAddress(), port);
                     out.printf("Connect to %s port %d %n", socket.getInetAddress(), port);

@@ -73,7 +73,7 @@ public class DatagramStreamClient implements Runnable {
 
                 if (stream instanceof StreamFile) {
                     try {
-                        Thread.sleep(300);
+                        Thread.sleep(250);
                     } catch (InterruptedException ignore) {
                         stop = true;
                     }
