@@ -30,15 +30,14 @@ import org.avpsoft.streaming.player.JPEGPlayer;
  *
  * @author andresvelezperez
  */
-public class DatagramCommandServer implements Runnable {
+public class DatagramStreamServer implements Runnable {
 
     private DatagramSocket datagramSocket;
-    private volatile boolean readData = true;
-    private Thread thread;
+    private volatile boolean stop = true;
     private PipedOutputStream pipedOutputStream;
     
 
-    public DatagramCommandServer(int port,String player) throws SocketException, IOException {
+    public DatagramStreamServer(int port,String player) throws SocketException, IOException {
 
         datagramSocket = new DatagramSocket(port);
         datagramSocket.setSoTimeout(500);
@@ -46,9 +45,6 @@ public class DatagramCommandServer implements Runnable {
         pipedOutputStream = new PipedOutputStream();
         PipedInputStream pipedInputStream = new PipedInputStream(pipedOutputStream);
     
-        thread = new Thread(this);
-        thread.start();
-        
         if("jpeg".compareToIgnoreCase(player) == 0 || "jpg".compareToIgnoreCase(player) == 0){
             JPEGPlayer jPEGPlayer = new JPEGPlayer(pipedInputStream, "Stream-JPEG");
         }
@@ -61,12 +57,13 @@ public class DatagramCommandServer implements Runnable {
 
     @Override
     public void run() {
+        this.stop = false;
         int maxBuffer = 2048;
         byte[] buffer = new byte[maxBuffer];
         DatagramPacket datagramPacket;
         int length = 0;
        
-        while (readData) {
+        while (!stop) {
 
             try {
                 datagramPacket = new DatagramPacket(buffer, maxBuffer);
@@ -75,6 +72,10 @@ public class DatagramCommandServer implements Runnable {
          
                 pipedOutputStream.write(buffer, 0, length);
                 pipedOutputStream.flush();
+                
+                if(Thread.currentThread().isInterrupted()){
+                    stop = true;
+                }
 
             } catch (SocketTimeoutException stex) {
 
