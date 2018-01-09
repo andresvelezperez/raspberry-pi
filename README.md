@@ -5,9 +5,6 @@ Librerias, ejemplos y apps para ser ejecutadas en Raspberry Pi.
 >
 **Proyectos**
  - JavaMECharLCD
- - Streaming
-  - StreamingPiServer: Solo debe de funcionar en raspberry pi
-  - StreamingPi (Cliente): Solo debe de funcionar en el PC (Windows/Linux/Mac).
 
 
 ______________________________

@@ -11,4 +11,3 @@
 hs_err_pid*
 *.jad
 /StreamingPiServer/target/
-/StreamingPiServer/nb-configuration.xml
